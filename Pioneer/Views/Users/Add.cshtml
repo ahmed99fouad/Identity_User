@@ -1,0 +1,126 @@
+﻿@model AddUserViewModel
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer localizer
+
+@{
+    ViewData["Title"] = "Add New User" ;
+}
+
+<form id="profile-form2" asp-action="Add" method="post" enctype="multipart/form-data">
+    <h2>@localizer["Create a new User"]</h2>
+    <hr />
+@*     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+ *@
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="form-floating mb-3">
+                <input asp-for="FirstName" class="form-control" maxlength="100" placeholder="enter your first name" />
+                <label asp-for="FirstName">@localizer["First Name"]</label>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="LastName" class="form-control" maxlength="100" placeholder="enter your last name" />
+                <label asp-for="LastName">@localizer["Last Name"]</label>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Email">@localizer["Email"]</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="UserName">@localizer["UserName"]</label>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Password">@localizer["Password"]</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="ConfirmPassword">@localizer["Confirm Password"]</label>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+
+
+            <hr />
+            <h6>@localizer["Roles"]</h6>
+            @for (int i = 0; i < Model.Roles.Count; i++)
+            {
+                <div class="form-check m-1">
+                    <input type="hidden" asp-for="@Model.Roles[i].RoleName" />
+                    <input asp-for="@Model.Roles[i].IsSelected" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model.Roles[i].IsSelected">
+                        @Model.Roles[i].RoleName
+                    </label>
+                </div>
+            }
+            <span asp-validation-for="Roles" class="text-danger"></span>
+
+            <button type="submit" class=" btn btn-primary d-block mt-4">@localizer["Save"]</button>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="PresonalPicture" class="w-100"></label>
+                @if (Model.PresonalPicture != null)
+                {
+                    <img id="PresonalPicture" alt="profile" class="profile-picture" src="data:image/*;base64,@(Convert.ToBase64String(Model.PresonalPicture))" />
+                }
+                else
+                {
+                    <img id="PresonalPicture" alt="profile" class="profile-picture" src="~/images/avatar-male.png" />
+                }
+                <div class="custom-file mt-2">
+                    <input type="file"
+                           accept="image/*"
+                           asp-for="PresonalPicture"
+                           class="custom-file-input"
+                           name="PresonalPicture"
+                           onchange="document.getElementById('PresonalPicture').src = window.URL.createObjectURL(this.files[0])" />
+                    <span asp-validation-for="PresonalPicture" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="NationalPicture" class="w-100"></label>
+                @if (Model.NationalPicture != null)
+                {
+                    <img id="NationalPicture" alt="profile" class="profile-picture" src="data:image/*;base64,@(Convert.ToBase64String(Model.NationalPicture))" />
+                }
+                else
+                {
+                    <img id="NationalPicture" alt="profile" class="profile-picture" src="~/images/avatar1.png" />
+                }
+                <div class="custom-file mt-2">
+                    <input type="file"
+                           accept="image/*"
+                           asp-for="NationalPicture"
+                           class="custom-file-input"
+                           name="NationalPicture"
+                           onchange="document.getElementById('NationalPicture').src = window.URL.createObjectURL(this.files[0])" />
+                    <span asp-validation-for="NationalPicture" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+ 
+
+
+    </div>
+
+    
+</form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

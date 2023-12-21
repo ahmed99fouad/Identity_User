@@ -1,0 +1,92 @@
+﻿@model ProfileFormViewModel
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+
+    <div class="row">
+        <div class="col-md-6">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-floating mb-3">
+                <input asp-for="FirstName" class="form-control" maxlength="100" placeholder="enter your first name" />
+                <label asp-for="FirstName">FirstName</label>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="LastName" class="form-control" maxlength="100" placeholder="enter your last name" />
+                <label asp-for="LastName">LastName</label>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Email">Email</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="UserName">UserName</label>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="PresonalPicture" class="w-100"></label>
+                @if (Model.PresonalPicture != null)
+                {
+                    <img id="PresonalPicture" alt="profile" class="profile-picture" src="data:image/*;base64,@(Convert.ToBase64String(Model.PresonalPicture))" />
+                }
+                else
+                {
+                    <img id="PresonalPicture" alt="profile" class="profile-picture" src="~/images/avatar-male.png" />
+                }
+                <div class="custom-file mt-2">
+                    <input type="file"
+                           accept="image/*"
+                           asp-for="PresonalPicture"
+                           class="custom-file-input"
+                           name="PresonalPicture2"
+                           onchange="document.getElementById('PresonalPicture').src = window.URL.createObjectURL(this.files[0])" />
+                    <span asp-validation-for="PresonalPicture" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="NationalPicture" class="w-100"></label>
+                @if (Model.NationalPicture != null)
+                {
+                    <img id="NationalPicture" alt="profile" class="profile-picture" src="data:image/*;base64,@(Convert.ToBase64String(Model.NationalPicture))" />
+                }
+                else
+                {
+                    <img id="NationalPicture" alt="profile" class="profile-picture" src="~/images/avatar1.png" />
+                }
+                <div class="custom-file mt-2">
+                    <input type="file"
+                           accept="image/*"
+                           asp-for="NationalPicture"
+                           class="custom-file-input"
+                           name="NationalPicture2"
+                           onchange="document.getElementById('NationalPicture').src = window.URL.createObjectURL(this.files[0])" />
+                    <span asp-validation-for="NationalPicture" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    
+ 
+    <button type="submit" class=" btn btn-primary d-block mt-4">Save</button>
+
+</form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

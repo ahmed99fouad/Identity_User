@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = " Page";
+}
+
+<link href="~/lib/datatables/css/datatables.bootstrap4.css" rel="stylesheet" />
+<div class="container">
+    <h3 class="text-primary">users-marchant</h3>
+    <hr />
+
+    <table id="Marchants" class="table table-striped table-bordered dt-responsive nowrap">
+        <thead>
+            <tr>
+                <th>LogDateTime</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts
+    {
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="~/js/marchantsdatatable.js"></script>
+  }

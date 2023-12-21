@@ -1,0 +1,24 @@
+﻿@model RoleFormViewModel
+
+@{
+    ViewData["Title"] = "Edit role";
+}
+
+<form asp-action="Editrole" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-floating mb-3">
+        <input asp-for="Name" class="form-control" maxlength="100" placeholder="enter your role name" />
+        <label asp-for="Name">Role Name</label>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+   
+    <button type="submit" class=" btn btn-primary d-block mt-4">Save</button>
+</form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

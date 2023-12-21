@@ -1,0 +1,51 @@
+{
+  "welcome": "مرحبا",
+  "home": "الرئيسية",
+  "user": "المستخدمون",
+  "Manage Roles": "اداره الاقسام",
+  "Manage Users": "اداره الاشخاص",
+  "Id": "رقم الملف",
+  "Role Name": "اسم القسم",
+  "permission": "الصلاحيات",
+  "Action": "الاعدادات",
+  "Manage permission": "اداره الصلاحيات",
+  "Modify Role": "تعديل قسم",
+  "Delete": "حذف",
+  "Add New Role": "اضافه قسم جديد",
+  "Roles": "الاقسام",
+  "Remember me?": "تذكير الدخول?",
+  "Password": "كلمه المرور",
+  "Email or UserName": "اسم المستخدم او الايميل",
+  "First Name": "الاسم الاول",
+  "Last Name": "الاسم الاخير",
+  "Email": "الايميل",
+  "username": "اسم المستخدم",
+  "Confirm password": "تاكيد كلمه المرور",
+  "Product": "المنتجات",
+  "Add New": "اضافه جديد",
+  "User Name": "اسم المستخدم",
+  "PresonalPicture": "صوره الشخصيه",
+  "NationalPictur": "صوره البطاقه",
+  "Actions": "الاجرائات",
+  "Edit": "اضافه",
+  "UserName": "اسم المستخدم",
+  "Confirm Password": "تاكيد كلمه المرور",
+  "Save": "حفظ",
+  "Create a new User": "اضافه مستخدم جديد",
+  "Users": "المستخدمون"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
